@@ -1,0 +1,15 @@
+{
+  "name": "nw-demo",
+  "main": "index.html",
+  "window": {
+    "toolbar"		: true,
+    "frame"			: true,
+    "resizable" 	: true,
+    "transparent"	: true,
+    "width" : 450,
+    "height" : 550
+  },
+  "webkit": {
+    "plugin": true
+  }
+}

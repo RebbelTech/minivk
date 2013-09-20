@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" ng-app="vkchat">
+<head>
+    <meta charset="UTF-8">
+    <title>Быстрочат в ВК</title>    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0-rc2/js/bootstrap.min.js"></script>    
+    <script type='text/javascript' src="http://code.angularjs.org/1.2.0rc1/angular.min.js"></script>
+    <script type='text/javascript' src="http://code.angularjs.org/1.2.0rc1/angular-resource.min.js"></script>
+    <script type='text/javascript' src="http://code.angularjs.org/1.2.0rc1/angular-cookies.min.js"></script>        
+    <script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.5.1/jquery.nicescroll.min.js"></script>
+
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+    
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0-rc2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.css">
+        
+        
+    <script type="text/javascript" src="./assets/bower_components/soundmanager/script/soundmanager2-jsmin.js"></script>
+        
+    <link rel="stylesheet" href="./assets/css/style.css">  
+    <script  type='text/javascript' src="./assets/js/app.js"> </script>
+    
+    
+</head>
+<body>
+    <nav class="navbar  navbar-inverse navbar-fixed-top" role="navigation" ng-controller="topBarCtrl">
+        <div class="navbar-header"> <a class="navbar-brand" href="#">БЫСТРОЧАТ</a> </div>
+
+
+
+            
+
+
+        <div class="pull-right closeBtn">
+            <a href="#"  id="play"><i class="icon-play"></i></a>
+
+			<a ng-click="minimize($event)" class=" btn btn-xs"><i class="icon-angle-down"></i></a>
+			<a  ng-click="close($event)" class=" btn btn-xs"><i class="icon-remove"></i></a>
+        </div>
+    </nav>
+
+    <div class="container-fluid"  ng-controller="mainCtrl">              
+        <div class="login" ng-hide="user.isLogged"> <button ng-click="login()" class="btn btn-success btn-lg">Войти</button> </div>
+        
+        
+    </div>
+    
+    
+    <br>
+    <br>
+
+    
+    <div class="container container-fluid"  ng-controller="audioPlayerCtrl" ng-show="show" style=" height : 480px;">
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                
+                
+                    
+                    
+                
+                
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Поиск аудиозаписи" ng-model="q.filter">
+                    </div>
+                    <ul nicescroll class="audioList">
+                        <li ng-repeat="item in audioList  track by $index">
+                            <span audio="item"  ng-click="cmd($event)">
+                                {{audio.artist}} - {{ audio.title }}
+                                {{audio.duration / 60 | number:0 }}:{{ audio.duration % 60 }}
+
+								<i class="pull-right" ng-class="'icon-' + (!status ? 'play' : 'pause')"></i>                            
+                            </span> 
+                        </li>                    
+                    </ul>
+
+                    <ul class="pagination">
+                      <li ng-class="{ disabled : search.page === 0 } "><a href="#" ng-click="prevPage($event)">&laquo;</a></li>
+                      <li ng-repeat="page in pages" ng-class="{ active : page === q.page + 1 }"><a href="#" ng-click="setPage($index)">{{ page }}</a></li>
+                      <li><a href="#" ng-click="nextPage($event)">&raquo;</a></li>
+                    </ul>
+
+
+
+
+                
+            </div>           
+        
+        </div>    
+    </div>
+    
+    
+    
+</body>
+</html>

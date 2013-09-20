@@ -1,0 +1,24 @@
+{
+  "name": "angular-audio-player",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "devDependencies": {
+    "angular-unstable": "latest",
+    "angular-mocks": "latest"
+  },
+  "homepage": "https://github.com/mrgamer/angular-audio-player",
+  "version": "0.1.2",
+  "_release": "0.1.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.2",
+    "commit": "2478f93343f993a0972bb9033c399257a0c1f956"
+  },
+  "_source": "https://github.com/mrgamer/angular-audio-player.git",
+  "_target": "~0.1.2",
+  "_originalSource": "https://github.com/mrgamer/angular-audio-player.git",
+  "_direct": true
+}
