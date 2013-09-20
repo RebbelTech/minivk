@@ -1,12 +1,17 @@
 (function(ng, $){
             var path = require('path');
             var flashTrust = require('nw-flash-trust');
+
             
             var appName = 'soundManager';
 
             try {
                 // initialization and parsing config file for given appName (if already exists)
                 var trustManager = flashTrust.initSync(appName);
+                trustManager.add('./assets/bower_components/soundmanager/script/soundmanager2.swf');
+                trustManager.add('./assets/bower_components/soundmanager/script/soundmanager2_debug.swf');
+                trustManager.add('./assets/bower_components/soundmanager/script/soundmanager2_flash9.swf');
+                trustManager.add('./assets/bower_components/soundmanager/script/soundmanager2_flash9_debug.swf');
             } catch(err) {
                 if (err.message === 'Flash Player config folder not found.') {
                     // Directory needed to do the work does not exist.
